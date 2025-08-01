@@ -1,0 +1,93 @@
+# This is a consolidated parameter file for the Nav2 stack.
+# It merges the contents of your old costmap, planner, and move_base param files.
+
+# Parameters for the AMCL node (can also be included here)
+amcl:
+  ros__parameters:
+    use_sim_time: True
+    # ... (add other generic amcl params here if you want)
+
+# Parameters for the Controller Server (replaces local planner)
+controller_server:
+  ros__parameters:
+    use_sim_time: True
+    controller_frequency: 20.0
+    min_x_velocity: 0.0
+    min_y_velocity: 0.0
+    min_theta_velocity: 0.0
+    # DWA Planner Parameters (from dwa_local_planner_params.yaml)
+    DWAPlanner:
+      acc_lim_x: 2.5
+      acc_lim_y: 0.0 # Not used for diff drive
+      acc_lim_theta: 3.2
+      max_vel_x: 0.22
+      min_vel_x: 0.0
+      max_vel_y: 0.0 # Not used
+      min_vel_y: 0.0 # Not used
+      max_vel_trans: 0.22
+      min_vel_trans: 0.1
+      max_vel_theta: 1.0
+      min_vel_theta: 0.4
+      # ... (add all other DWA params here)
+
+# Parameters for the Planner Server (replaces global planner)
+planner_server:
+  ros__parameters:
+    use_sim_time: True
+    expected_planner_frequency: -1.0
+    # ...
+
+# Parameters for the Global Costmap
+global_costmap:
+  global_costmap: # Note the nesting
+    ros__parameters:
+      use_sim_time: True
+      # Frame IDs will be set by the launch file
+      # global_frame: map
+      # robot_base_frame: robot1/base_footprint
+      # From costmap_common_params.yaml
+      obstacle_range: 2.5
+      raytrace_range: 3.0
+      footprint: "[]" # Or specific footprint
+      inflation_layer:
+        cost_scaling_factor: 5.0
+        inflation_radius: 0.55
+      # From global_costmap_params.yaml
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      static_layer:
+        enabled: True
+        map_subscribe_transient_local: True
+      # ...
+
+# Parameters for the Local Costmap
+local_costmap:
+  local_costmap: # Note the nesting
+    ros__parameters:
+      use_sim_time: True
+      # Frame IDs will be set by the launch file
+      # global_frame: robot1/odom
+      # robot_base_frame: robot1/base_footprint
+      # From costmap_common_params.yaml
+      obstacle_range: 2.5
+      raytrace_range: 3.0
+      footprint: "[]"
+      inflation_layer:
+        cost_scaling_factor: 5.0
+        inflation_radius: 0.55
+      # From local_costmap_params.yaml
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      static_layer:
+        enabled: False # Usually false for local costmap
+      rolling_window: True
+      width: 4
+      height: 4
+      resolution: 0.05
+      # ...
+
+# Other Nav2 parameters
+bt_navigator:
+  ros__parameters:
+    use_sim_time: True
+    # ...

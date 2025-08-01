@@ -7,7 +7,7 @@ package_name = 'multi_turtlebots_nav'
 setup(
     name=package_name,
     version='1.0.0',
-    packages=[package_name],
+    packages=[],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -16,7 +16,7 @@ setup(
         # Instala os arquivos de lançamento (launch files)
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         # Instala os arquivos de configuração (se houver)
-        # (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
+         (os.path.join('share', package_name, 'param'), glob('param/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
