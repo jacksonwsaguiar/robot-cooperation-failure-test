@@ -9,13 +9,13 @@ import xacro
 def generate_launch_description():
     # Path to your package
     pkg_multi_turtlebots_sim = get_package_share_directory('multi_turtlebots_sim')
-    
+    pkg_description = get_package_share_directory('turtlebot3_description')
     # Path to the single robot launch file
     one_robot_launch_file = os.path.join(pkg_multi_turtlebots_sim, 'launch', 'one_robot.launch.py')
 
     # --- Robot Description (from XACRO) ---
     # This processes the XACRO file to get the robot's URDF description.
-    xacro_file = os.path.join(pkg_multi_turtlebots_sim, 'turtlebot3_description', 'urdf', 'turtlebot3_burger.urdf.xacro')
+    xacro_file = os.path.join(pkg_description, 'urdf', 'turtlebot3_burger.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file)
     robot_description = {'robot_description': robot_description_config.toxml()}
 

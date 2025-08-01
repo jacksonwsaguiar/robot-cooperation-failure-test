@@ -7,7 +7,7 @@ package_name = 'multi_turtlebots_sim'
 setup(
     name=package_name,
     version='1.0.0',
-    packages=[package_name],
+    packages=[],
     # This section is crucial for simulation packages
     data_files=[
         ('share/ament_index/resource_index/packages',

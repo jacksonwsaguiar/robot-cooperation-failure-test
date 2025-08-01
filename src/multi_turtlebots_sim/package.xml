@@ -3,19 +3,16 @@
   <name>multi_turtlebots_sim</name>
   <version>1.0.0</version>
   <description>Package for simulating multiple TurtleBots in Gazebo.</description>
-  <maintainer email="jackson.aguiar@email.com">Pallav</maintainer>
+  <maintainer email="jackson.aguiar@todo.todo">jackson-aguiar</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
 
   <exec_depend>rclpy</exec_depend>
-  <exec_depend>xacro</exec_depend>
-  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>turtlebot3_description</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
 
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
 
   <export>
     <build_type>ament_python</build_type>

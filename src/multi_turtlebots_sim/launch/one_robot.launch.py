@@ -18,7 +18,7 @@ def generate_launch_description():
     
     # Node to spawn the robot model in Gazebo
     spawn_entity_node = Node(
-        package='gazebo_ros',
+        package='ros_gz_sim',
         executable='spawn_entity.py',
         arguments=[
             '-entity', robot_name,

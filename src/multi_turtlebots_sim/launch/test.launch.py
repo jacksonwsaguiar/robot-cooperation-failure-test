@@ -9,8 +9,10 @@ import xacro
 
 def generate_launch_description():
     # --- Paths ---
-    pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
+    pkg_gazebo_ros = get_package_share_directory('ros_gz')
     pkg_sim = get_package_share_directory('multi_turtlebots_sim')
+    pkg_description = get_package_share_directory('turtlebot3_description')
+
     
     # --- Launch Arguments ---
     x_pose_arg = DeclareLaunchArgument('x_pos', default_value='0.0')
@@ -23,7 +25,7 @@ def generate_launch_description():
 
     # --- Gazebo ---
     # In ROS 2, we include gazebo.launch.py and pass the world file as an argument
-    world_file = os.path.join(pkg_sim, 'turtlebot3_description', 'world', 'square.world')
+    world_file = os.path.join(pkg_description, 'world', 'square.world')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')
@@ -32,7 +34,7 @@ def generate_launch_description():
     )
 
     # --- Robot Description (from XACRO) ---
-    xacro_file = os.path.join(pkg_sim, 'turtlebot3_description', 'urdf', 'turtlebot3_burger.urdf.xacro')
+   xacro_file = os.path.join(pkg_description, 'urdf', 'turtlebot3_burger.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file)
     robot_description = {'robot_description': robot_description_config.toxml()}
 
@@ -47,7 +49,7 @@ def generate_launch_description():
 
     # Spawn Entity (replaces spawn_model)
     spawn_entity_node = Node(
-        package='gazebo_ros',
+        package='ros_gz_sim',
         executable='spawn_entity.py',
         arguments=[
             '-topic', 'robot_description',
