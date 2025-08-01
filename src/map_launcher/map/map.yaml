@@ -1,4 +1,4 @@
-image: /home/pallav/test/map.pgm
+image: /home/pallav/map/map.pgm
 resolution: 0.050000
 origin: [-10.000000, -10.000000, 0.000000]
 negate: 0
