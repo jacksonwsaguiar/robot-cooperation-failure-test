@@ -7,7 +7,7 @@ package_name = 'multi_turtlebots_nav'
 setup(
     name=package_name,
     version='1.0.0',
-    packages=[package_name],
+    packages=[],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -20,7 +20,7 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Jackson Aguiar',
+     maintainer='Jackson',
     maintainer_email='jackson.aguiar@email.com',
     description='Pacote para navegação de múltiplos TurtleBots.',
     license='Apache-2.0',

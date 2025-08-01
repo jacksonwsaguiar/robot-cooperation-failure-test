@@ -3,7 +3,7 @@
   <name>multi_turtlebots_sim</name>
   <version>1.0.0</version>
   <description>Package for simulating multiple TurtleBots in Gazebo.</description>
-  <maintainer email="jackson.aguiar@email.com">Pallav</maintainer>
+  <maintainer email="jackson.aguiar@todo.do">jackson-aguiar</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_python</buildtool_depend>

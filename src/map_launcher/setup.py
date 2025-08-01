@@ -7,7 +7,7 @@ package_name = 'map_launcher'
 setup(
     name=package_name,
     version='1.0.0',
-    packages=[package_name],
+    packages=[],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -21,7 +21,7 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Seu Nome',
+    maintainer='Jackson',
     maintainer_email='seu_email@exemplo.com',
     description='Pacote para lançar mapas e configurações do Rviz.',
     license='Apache-2.0',

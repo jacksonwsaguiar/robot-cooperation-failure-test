@@ -7,7 +7,7 @@ package_name = 'multi_turtlebots_sim'
 setup(
     name=package_name,
     version='1.0.0',
-    packages=[package_name],
+    packages=[],
     # This section is crucial for simulation packages
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -25,7 +25,7 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Pallav',
+    maintainer='Jackson',
     maintainer_email='jackson.aguiar@email.com',
     description='Package for simulating multiple TurtleBots in Gazebo.',
     license='Apache-2.0',
